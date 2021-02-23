@@ -1,8 +1,8 @@
 import React from 'react';
-import Questionnaire from './src/Questionnaire/';
+import Routes from './src/Menu/routes';
 
-export default function App() {
-  return (
-    <Questionnaire />    
-  );
+export default function App(){
+    return (
+         <Routes/>
+    );
 }
