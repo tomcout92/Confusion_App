@@ -10,6 +10,7 @@ export default function QuestionOne() {
   const navigation = useNavigation();
   const [index, setIndex] = useState(0);
   const [pacient, setPacient] = useState(pacientModel);
+  console.log(pacient);
 
   return (
     <View style={styles.container}>
@@ -27,14 +28,14 @@ export default function QuestionOne() {
 
             <TouchableOpacity style={styles.thumbsUp} onPress={() => {
               setIndex(index + 1)
-              data[index].ans == true? setPacient({prevState=>({pacient:{...prevState.pacient, }})}): setPacient(pacient.result[index]="Incorrect")
+              data[index].ans == true? setPacient(prev=> ({...prev, result:[...prev.result, {[data[index].id]:"Correct"}]})): setPacient(prev=> ({...prev, result:[...prev.result, {[data[index].id]:"Incorrect"}]}))
               }}>
               <Feather size={24} name="check" color="#fff" />
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.thumbsDown} onPress={() => {
               setIndex(index + 1)
-              data[index].ans == false? setPacient(pacient.result[index]="Correct"): setPacient(pacient.result[index]="Incorrect")
+              data[index].ans == false? setPacient(prev=> ({...prev, result:[...prev.result, {[data[index].id]:"Correct"}]})): setPacient(prev=> ({...prev, result:[...prev.result, {[data[index].id]:"Incorrect"}]}))
               }}>
               <Feather size={24} name="x" color="#fff" />
             </TouchableOpacity>
