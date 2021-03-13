@@ -11,8 +11,12 @@ export default function QuestionOne() {
     const pergunta2 = "Uma folha pode flutuar na água";
     const pergunta3 = "Um quilo pesa mais do que dois quilos?";
     const pergunta4 = "Pode-se usar um martelo para pesar uma agulha?";
-    const perguntas = [pergunta1, pergunta2, pergunta3, pergunta4];
     const [index,setIndex] = useState(0);
+    const questions = [{id:0, question: pergunta1,ans: true}, 
+                       {id:1, question: pergunta2, ans: true},
+                       {id:2, question: pergunta3, ans: false},
+                       {id:3, question: pergunta4, ans: false},
+                       {question: "Fim"}];
     const [answers,setAnswers] = useState([]);
 
     return  (
@@ -21,18 +25,22 @@ export default function QuestionOne() {
                 <View style={styles.imageContainer}>
                     <Image source={logo} style={styles.logoStyle}/>
                 </View>
-                <Text style={styles.question}>{perguntas[index]}</Text>
+                <Text style={styles.question}>{questions[index].question}</Text>
             </View>
 
             {index<=3 ?
             <View style={styles.buttonsContainer}>
+
                 <TouchableOpacity style={styles.thumbsUp} onPress = {() => {setIndex(index+1)}}>
                     <Feather size={24} name="check" color="#fff" />
                 </TouchableOpacity>
+
                 <TouchableOpacity style={styles.thumbsDown} onPress={() => {setIndex(index+1)}}>
                     <Feather size={24} name="x" color="#fff" />
                 </TouchableOpacity>
+                
             </View>: 
+
             <View>
                 <TouchableOpacity style={styles.thumbsDown} title="Fim" onPress={() => navigation.navigate("QuestionTwo")}>
                     <Feather size={24} name="x" color="#fff" />
