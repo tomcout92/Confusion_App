@@ -55,8 +55,9 @@ const styles = StyleSheet.create({
     },
     
     logoStyle: {
-        height: 100,
-        width: 100,
+        resizeMode: 'contain',
+        height: 150,
+        width: 150,
     },
 
     question: {

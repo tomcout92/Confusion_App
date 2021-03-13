@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Image, StyleSheet, Text, StatusBar, TouchableOpacity, View } from 'react-native';
 import {useNavigation} from '@react-navigation/native'
 import { Feather } from '@expo/vector-icons';
@@ -7,6 +7,13 @@ import QuestionTwo from '../QuestionTwo';
 
 export default function QuestionOne() {
     const navigation = useNavigation();
+    const pergunta1 = "Existem peixes no mar?";
+    const pergunta2 = "Uma folha pode flutuar na água";
+    const pergunta3 = "Um quilo pesa mais do que dois quilos?";
+    const pergunta4 = "Pode-se usar um martelo para pesar uma agulha?";
+    const perguntas = [pergunta1, pergunta2, pergunta3, pergunta4];
+    const [index,setIndex] = useState(0);
+    const [answers,setAnswers] = useState([]);
 
     return  (
         <View style={styles.container}>
@@ -14,18 +21,23 @@ export default function QuestionOne() {
                 <View style={styles.imageContainer}>
                     <Image source={logo} style={styles.logoStyle}/>
                 </View>
-                <Text style={styles.question}>Existem peixes no mar?</Text>
+                <Text style={styles.question}>{perguntas[index]}</Text>
             </View>
 
+            {index<=3 ?
             <View style={styles.buttonsContainer}>
-                <TouchableOpacity style={styles.thumbsUp} onPress={()=>navigation.navigate("QuestionTwo")}>
+                <TouchableOpacity style={styles.thumbsUp} onPress = {() => {setIndex(index+1)}}>
                     <Feather size={24} name="check" color="#fff" />
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.thumbsDown} onPress={()=>navigation.navigate("QuestionTwo")}>
+                <TouchableOpacity style={styles.thumbsDown} onPress={() => {setIndex(index+1)}}>
                     <Feather size={24} name="x" color="#fff" />
                 </TouchableOpacity>
-            </View>
-
+            </View>: 
+            <View>
+                <TouchableOpacity style={styles.thumbsDown} title="Fim" onPress={() => navigation.navigate("QuestionTwo")}>
+                    <Feather size={24} name="x" color="#fff" />
+                </TouchableOpacity>
+            </View>} 
         </View>
     );
 }
@@ -34,17 +46,18 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         marginTop: StatusBar.currentHeight,
-        backgroundColor: '#fff',
+        backgroundColor: '#333',
         alignItems: 'center',
         padding: 32,
     },
 
     questionContainer: {
+        alignSelf: 'baseline',
         height: 300,
         width: '100%',
         padding: 16,
         borderRadius: 20,
-        backgroundColor: '#187bcd',
+        backgroundColor: '#eead2d',
         flexDirection: 'column',
         alignItems: 'center',
     },
@@ -59,14 +72,17 @@ const styles = StyleSheet.create({
     },
     
     logoStyle: {
-        height: 100,
-        width: 100,
+        resizeMode: 'contain',
+        height: 150,
+        width: 150,
     },
 
     question: {
         fontSize: 24,
         color: '#fff',
         marginTop: 32,
+        textAlignVertical: 'center',
+        textAlign: 'center',
     },
      
     thumbsUp: {
