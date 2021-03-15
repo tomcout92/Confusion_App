@@ -12,15 +12,15 @@ export default function QuestionOne() {
   const [pacient, setPacient] = useState(pacientModel);
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <View style={styles.container}>
       {index <= 3 ?
         <>
-          <View style={styles.questionContainer}>
+          <ScrollView contentContainerStyle={styles.questionContainer}>
             <View style={styles.imageContainer}>
               <Image source={logo} style={styles.logoStyle} />
             </View>
             <Text style={styles.question}>{data[index].question}</Text>
-          </View>
+          </ScrollView>
 
 
           <View style={styles.buttonsContainer}>
@@ -46,11 +46,14 @@ export default function QuestionOne() {
         :
 
         <View>
-          <TouchableOpacity style={styles.thumbsDown} title="Fim" onPress={() => navigation.navigate("Home", { params: pacient })}>
-            <Feather size={24} name="x" color="#fff" />
+          <TouchableOpacity style={styles.button} title="Fim" onPress={() => navigation.navigate("Home", { params: pacient })}>
+            <View style={[{flexDirection: 'row', alignItems: 'center'}]}>
+              <Feather size={24} name="thumbs-up" color="#fff" />
+            <Text style={styles.navigationContainer}>Fim do questionário!</Text>
+            </View>
           </TouchableOpacity>
         </View>}
-    </ScrollView>
+    </View >
   );
 }
 
@@ -72,6 +75,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#eead2d',
     flexDirection: 'column',
     alignItems: 'center',
+  },
+
+  navigationContainer: {
+    fontSize: 18,
+    color: '#fff',
+    marginTop: 32,
+    textAlignVertical: 'center',
+    textAlign: 'center',
   },
 
   imageContainer: {
@@ -115,6 +126,24 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 8,
+  },
+
+  button: {
+    alignSelf: 'center',
+    //height: '50%',
+    //width: 200,
+    marginTop:StatusBar.currentHeight,
+    padding: 16,
+    borderRadius: 20,
+    backgroundColor: '#252850',
+    flexDirection: 'column',
+    alignItems: 'center',
+    borderColor:'#fff',
+    borderEndWidth:1,
+    borderTopWidth:1,
+    borderLeftWidth:1,
+    borderRightWidth:1,
+    borderBottomWidth:1,
   },
 
   buttonsContainer: {

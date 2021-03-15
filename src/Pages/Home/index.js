@@ -11,7 +11,7 @@ const Home = () => {
       <TouchableOpacity style={styles.button} title="Tests" onPress={() => navigation.navigate("Questionnaire")}>
         <View style={[{ flexDirection: 'row', alignItems: 'center' }]}>
           <Feather name="clipboard" size={24} color="#fff" />
-          <Text style={styles.question}>Questionnaire</Text>
+          <Text style={styles.navgiationContainer}>Questionnaire</Text>
         </View>
 
       </TouchableOpacity>
@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     //height: '50%',
     //width: 200,
+    marginTop:StatusBar.currentHeight,
     padding: 16,
     borderRadius: 20,
     backgroundColor: '#252850',
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
     padding: 32,
   },
 
-  question: {
+  navgiationContainer: {
     fontSize: 18,
     color: '#fff',
     marginTop: 32,
