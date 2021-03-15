@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image, StyleSheet, Text, StatusBar, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, StatusBar, TouchableOpacity, View, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native'
 import data from '../../Datas'
 import { Feather } from '@expo/vector-icons';
@@ -10,10 +10,9 @@ export default function QuestionOne() {
   const navigation = useNavigation();
   const [index, setIndex] = useState(0);
   const [pacient, setPacient] = useState(pacientModel);
-  console.log(pacient);
 
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       {index <= 3 ?
         <>
           <View style={styles.questionContainer}>
@@ -51,7 +50,7 @@ export default function QuestionOne() {
             <Feather size={24} name="x" color="#fff" />
           </TouchableOpacity>
         </View>}
-    </View>
+    </ScrollView>
   );
 }
 
@@ -66,8 +65,8 @@ const styles = StyleSheet.create({
 
   questionContainer: {
     alignSelf: 'baseline',
-    height: 300,
-    width: '100%',
+    //height: 300,
+    //width: '100%',
     padding: 16,
     borderRadius: 20,
     backgroundColor: '#eead2d',
