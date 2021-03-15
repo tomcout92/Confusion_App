@@ -28,15 +28,17 @@ export default function QuestionOne() {
 
             <TouchableOpacity style={styles.thumbsUp} onPress={() => {
               setIndex(index + 1)
-              data[index].ans == true? setPacient(prev=> ({...prev, result:[...prev.result, {[data[index].id]:"Correct"}]})): setPacient(prev=> ({...prev, result:[...prev.result, {[data[index].id]:"Incorrect"}]}))
-              }}>
+              data[index].ans == true ? setPacient(prev => ({ ...prev, result: [...prev.result, { [data[index].id]: "Correct" }] }))
+                : setPacient(prev => ({ ...prev, result: [...prev.result, { [data[index].id]: "Incorrect" }] }))
+            }}>
               <Feather size={24} name="check" color="#fff" />
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.thumbsDown} onPress={() => {
               setIndex(index + 1)
-              data[index].ans == false? setPacient(prev=> ({...prev, result:[...prev.result, {[data[index].id]:"Correct"}]})): setPacient(prev=> ({...prev, result:[...prev.result, {[data[index].id]:"Incorrect"}]}))
-              }}>
+              data[index].ans == false ? setPacient(prev => ({ ...prev, result: [...prev.result, { [data[index].id]: "Correct" }] }))
+                : setPacient(prev => ({ ...prev, result: [...prev.result, { [data[index].id]: "Incorrect" }] }))
+            }}>
               <Feather size={24} name="x" color="#fff" />
             </TouchableOpacity>
 
@@ -45,7 +47,7 @@ export default function QuestionOne() {
         :
 
         <View>
-          <TouchableOpacity style={styles.thumbsDown} title="Fim" onPress={() => navigation.navigate("Home",{params:pacient})}>
+          <TouchableOpacity style={styles.thumbsDown} title="Fim" onPress={() => navigation.navigate("Home", { params: pacient })}>
             <Feather size={24} name="x" color="#fff" />
           </TouchableOpacity>
         </View>}

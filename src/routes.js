@@ -12,8 +12,8 @@ export default function Routes() {
   return (
     <NavigationContainer>
       <Navigator>
+        <Screen name="Home" component={Home} />
         <Screen name="Questionnaire" component={Questionnaire} />
-        <Screen name="Home" component={Home}/>
       </Navigator>
     </NavigationContainer>
   );
