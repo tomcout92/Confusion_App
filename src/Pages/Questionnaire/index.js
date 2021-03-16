@@ -3,13 +3,14 @@ import { Image, StyleSheet, Text, StatusBar, TouchableOpacity, View, ScrollView 
 import { useNavigation } from '@react-navigation/native'
 import data from '../../Datas'
 import { Feather } from '@expo/vector-icons';
-import logo from '../../../assets/logoupe.jpg'
-import pacientModel from '../Answers'
+import logo from '../../../assets/logoupe.jpg';
+import pacientModel from '../Pacientinfo';
 
 export default function QuestionOne() {
   const navigation = useNavigation();
   const [index, setIndex] = useState(0);
   const [pacient, setPacient] = useState(pacientModel);
+  console.log(pacient)
 
   return (
     <View style={styles.container}>
@@ -47,9 +48,9 @@ export default function QuestionOne() {
 
         <View>
           <TouchableOpacity style={styles.button} title="Fim" onPress={() => navigation.navigate("Home", { params: pacient })}>
-            <View style={[{flexDirection: 'row', alignItems: 'center'}]}>
+            <View style={[{ flexDirection: 'row', alignItems: 'center' }]}>
               <Feather size={24} name="thumbs-up" color="#fff" />
-            <Text style={styles.navigationContainer}>Fim do questionário!</Text>
+              <Text style={styles.navigationContainer}>Fim do questionário!</Text>
             </View>
           </TouchableOpacity>
         </View>}
@@ -68,8 +69,6 @@ const styles = StyleSheet.create({
 
   questionContainer: {
     alignSelf: 'baseline',
-    //height: 300,
-    //width: '100%',
     padding: 16,
     borderRadius: 20,
     backgroundColor: '#eead2d',
@@ -130,20 +129,18 @@ const styles = StyleSheet.create({
 
   button: {
     alignSelf: 'center',
-    //height: '50%',
-    //width: 200,
-    marginTop:StatusBar.currentHeight,
+    marginTop: StatusBar.currentHeight,
     padding: 16,
     borderRadius: 20,
     backgroundColor: '#252850',
     flexDirection: 'column',
     alignItems: 'center',
-    borderColor:'#fff',
-    borderEndWidth:1,
-    borderTopWidth:1,
-    borderLeftWidth:1,
-    borderRightWidth:1,
-    borderBottomWidth:1,
+    borderColor: '#fff',
+    borderEndWidth: 1,
+    borderTopWidth: 1,
+    borderLeftWidth: 1,
+    borderRightWidth: 1,
+    borderBottomWidth: 1,
   },
 
   buttonsContainer: {
