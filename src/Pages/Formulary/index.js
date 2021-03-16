@@ -4,10 +4,20 @@ import { Feather } from '@expo/vector-icons';
 import { NavigationContainer, NavigationHelpersContext, useNavigation } from '@react-navigation/native';
 import pacientModel from '../Pacientinfo';
 
+
+
 const PacientForm = () => {
+  const navigation = useNavigation();
   const [pname, setPname] = useState("");
   const [pacientAge, setPage] = useState(null);
-  const [pacient, setPacient] = useState(pacientModel)
+  const [pacient, setPacient] = useState(pacientModel);
+
+  /*********************************End form executed function **************************************** */
+  const onPress = () => {
+    setPacient(prev => ({ ...prev, name: pname, age: pacientAge, id: (prev.id + 1) })),
+      navigation.navigate("Home")
+  };
+  /*********************************End form executed function **************************************** */
   console.log(pacient)
 
   return (
@@ -22,11 +32,11 @@ const PacientForm = () => {
         placeholder='e.g 25'
         onChangeText={(val) => setPage(val)} />
 
-      <TouchableOpacity style={styles.button} title="Fim" onPress={() => setPacient(prev => ({ ...prev, name: pname, age: pacientAge, id: (prev.id + 1) }))}>
+      <TouchableOpacity style={styles.button} title="Fim" onPress={onPress}>
         <Text style={styles.navgiationContainer}>OK</Text>
       </TouchableOpacity>
 
-    </View>
+    </View >
   );
 }
 
