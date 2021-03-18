@@ -31,8 +31,6 @@ const styles = StyleSheet.create({
 
   button: {
     alignSelf: 'center',
-    //height: '50%',
-    //width: 200,
     marginTop:StatusBar.currentHeight,
     padding: 16,
     borderRadius: 20,
