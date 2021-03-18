@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { Image, StyleSheet, Text, StatusBar, TouchableOpacity, TextInput, View, ScrollView } from 'react-native';
-import CheckBox from '@react-native-community/checkbox';
 import { Feather } from '@expo/vector-icons';
 import { NavigationContainer, NavigationHelpersContext, useNavigation } from '@react-navigation/native';
 import pacientModel from '../Pacientinfo';
-
+import RiskFactor from '../../Components/Riskfactor'
 
 
 const PacientForm = () => {
+  const riskFactor = [{ id: 1, factor: "Fumante" },
+{ id: 2, factor: "Dementia" }];
+
   const navigation = useNavigation();
   const [pname, setPname] = useState("");
   const [pacientAge, setPage] = useState(null);
-  const [isSelected, setSelection] = useState(false);
   const [pacient, setPacient] = useState(pacientModel);
 
   /*********************************End form executed function **************************************** */
@@ -20,7 +21,6 @@ const PacientForm = () => {
       navigation.navigate("Home")
   };
   /*********************************End form executed function **************************************** */
-  console.log(isSelected)
 
   return (
     <View style={styles.backgroud}>
@@ -34,14 +34,7 @@ const PacientForm = () => {
         placeholder='e.g 25'
         onChangeText={(val) => setPage(val)} />
 
-      <View style={styles.checkboxContainer}>
-        <CheckBox
-          value={isSelected}
-          onValueChange={setSelection}
-          style={styles.checkbox}
-        />
-        <Text style={styles.label}>Fumante</Text>
-      </View>
+      { riskFactor.map((value, index) => <RiskFactor key={index} value={value.factor}/>)}
 
       <TouchableOpacity style={styles.button} title="Fim" onPress={onPress}>
         <Text style={styles.navgiationContainer}>OK</Text>
@@ -66,8 +59,9 @@ const styles = StyleSheet.create({
 
   checkbox: {
     alignSelf: "center",
-    backgroundColor: '#fff',
-},
+    //backgroundColor: '#fff',
+    tintColor:'#fff',
+  },
 
   label: {
     margin: 8,
