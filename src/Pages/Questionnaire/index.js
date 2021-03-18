@@ -10,7 +10,7 @@ export default function QuestionOne() {
   const navigation = useNavigation();
   const [index, setIndex] = useState(0);
   const [pacient, setPacient] = useState(pacientModel);
-  console.log(pacient)
+  console.log(pacient);
 
   return (
     <View style={styles.container}>

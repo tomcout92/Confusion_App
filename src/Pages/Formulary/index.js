@@ -3,12 +3,12 @@ import { Image, StyleSheet, Text, StatusBar, TouchableOpacity, TextInput, View, 
 import { Feather } from '@expo/vector-icons';
 import { NavigationContainer, NavigationHelpersContext, useNavigation } from '@react-navigation/native';
 import pacientModel from '../Pacientinfo';
-import RiskFactor from '../../Components/Riskfactor'
+import RiskFactor from '../../Components/Riskfactor';
 
 
 const PacientForm = () => {
   const riskFactor = [{ id: 1, factor: "Fumante" },
-{ id: 2, factor: "Dementia" }];
+  { id: 2, factor: "Dementia" }];
 
   const navigation = useNavigation();
   const [pname, setPname] = useState("");
@@ -34,7 +34,7 @@ const PacientForm = () => {
         placeholder='e.g 25'
         onChangeText={(val) => setPage(val)} />
 
-      { riskFactor.map((value, index) => <RiskFactor key={index} value={value.factor}/>)}
+      { riskFactor.map((value, index) => <RiskFactor key={index} value={value.factor} />)}
 
       <TouchableOpacity style={styles.button} title="Fim" onPress={onPress}>
         <Text style={styles.navgiationContainer}>OK</Text>
@@ -50,23 +50,6 @@ const styles = StyleSheet.create({
   backgroud: {
     backgroundColor: '#252850',
     height: '100%',
-  },
-
-  checkboxContainer: {
-    flexDirection: "row",
-    marginBottom: 20,
-  },
-
-  checkbox: {
-    alignSelf: "center",
-    //backgroundColor: '#fff',
-    tintColor:'#fff',
-  },
-
-  label: {
-    margin: 8,
-    color: '#fff',
-    fontSize: 18,
   },
 
   input: {

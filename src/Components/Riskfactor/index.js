@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 
-const FactorsView = ({value}) => {
-  const[isSelected, setSelection] = useState(false);
+const FactorsView = ({ value }) => {
+  const [isSelected, setSelection] = useState(false);
   console.log(isSelected)
   return (
 
     <View style={styles.checkboxContainer}>
       <CheckBox
+        style={styles.checkbox}
         disabled={false}
         value={isSelected}
         onValueChange={setSelection}
-        onTintColor={'#fff'}
-
       />
       <Text style={styles.label}>{value}</Text>
     </View>)
@@ -30,7 +29,8 @@ const styles = StyleSheet.create({
 
   checkbox: {
     alignSelf: "center",
-    tintColor:'#fff',
+    tintColor: '#fff',
+    backgroundColor: '#fff',
   },
 
   label: {
