@@ -13,7 +13,6 @@ const Home = () => {
           <Feather name="clipboard" size={24} color="#fff" />
           <Text style={styles.navgiationContainer}>Questionnaire</Text>
         </View>
-
       </TouchableOpacity>
     </View>
   );

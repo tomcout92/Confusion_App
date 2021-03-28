@@ -9,8 +9,7 @@ import pacientModel from '../Pacientinfo';
 export default function QuestionOne() {
   const navigation = useNavigation();
   const [index, setIndex] = useState(0);
-  const [pacient, setPacient] = useState(pacientModel);
-  console.log(pacient);
+  const {pacient, setPacient} = usePacient();
 
   return (
     <View style={styles.container}>

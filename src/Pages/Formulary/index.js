@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
+import React, {useState } from 'react';
 import { Image, StyleSheet, Text, StatusBar, TouchableOpacity, TextInput, View, ScrollView } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { NavigationContainer, NavigationHelpersContext, useNavigation } from '@react-navigation/native';
 import pacientModel from '../Pacientinfo';
 import RiskFactor from '../../Components/Riskfactor';
-
+import { usePacient } from '../../Context/pacient';
 
 const PacientForm = () => {
   const riskFactor = [{ id: 1, factor: "Fumante" },
   { id: 2, factor: "Dementia" }];
-
   const navigation = useNavigation();
   const [pname, setPname] = useState("");
   const [pacientAge, setPage] = useState(null);
-  const [pacient, setPacient] = useState(pacientModel);
+  const {pacient, setPacient} = usePacient();
+
+  console.log(pacient);
 
   /*********************************End form executed function **************************************** */
   const onPress = () => {
@@ -34,7 +35,7 @@ const PacientForm = () => {
         placeholder='e.g 25'
         onChangeText={(val) => setPage(val)} />
 
-      { riskFactor.map((value, index) => <RiskFactor key={index} value={value.factor} />)}
+      { riskFactor.map((value, index) => <RiskFactor key={index} value={value.factor} pacient={pacient} />)}
 
       <TouchableOpacity style={styles.button} title="Fim" onPress={onPress}>
         <Text style={styles.navgiationContainer}>OK</Text>
