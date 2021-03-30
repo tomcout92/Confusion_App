@@ -1,21 +1,28 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 import pacientModel from '../../Pages/Pacientinfo'
-import { usePacient } from '../../Context/pacient';
+import PacientContext from '../../Context/pacient';
+import { useEffect } from 'react';
 
 const FactorsView = ({ value }) => {
   const [isSelected, setSelection] = useState(false);
-  const {pacient, setPacient} = usePacient();
-  const onValueChange = () => {isSelected ? setPacient(prev => ({ ...prev, riskfactors: [...prev.riskfactors, {value}]})): setPacient(prev => ({ ...prev, riskfactors: [...prev.riskfactors]}))};
-  console.log(pacient);
+  const { pacient, setPacient } = useContext(PacientContext);
+
+  const onValueChange = () => {
+    isSelected ? setPacient(prev => ({ ...prev, riskfactors: [...prev.riskfactors, value] }))
+      : setPacient(prev => ({ ...prev, riskfactors: prev.riskfactors.filter(val => value != val) }))
+  };
+
+  useEffect(() => { onValueChange() }, [isSelected]);
+
   return (
     <View style={styles.checkboxContainer}>
       <CheckBox
         style={styles.checkbox}
         disabled={false}
         value={isSelected}
-        onValueChange={setSelection, onValueChange}
+        onValueChange={(value) => { setSelection(value) }}
       />
       <Text style={styles.label}>{value}</Text>
     </View>)

@@ -1,19 +1,20 @@
-import React, {useState } from 'react';
+import React, {useContext, useState } from 'react';
 import { Image, StyleSheet, Text, StatusBar, TouchableOpacity, TextInput, View, ScrollView } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { NavigationContainer, NavigationHelpersContext, useNavigation } from '@react-navigation/native';
 import pacientModel from '../Pacientinfo';
 import RiskFactor from '../../Components/Riskfactor';
-import { usePacient } from '../../Context/pacient';
+import PacientContext from '../../Context/pacient';
 
 const PacientForm = () => {
+
   const riskFactor = [{ id: 1, factor: "Fumante" },
   { id: 2, factor: "Dementia" }];
+
   const navigation = useNavigation();
   const [pname, setPname] = useState("");
   const [pacientAge, setPage] = useState(null);
-  const {pacient, setPacient} = usePacient();
-
+  const {pacient, setPacient} = useContext(PacientContext);
   console.log(pacient);
 
   /*********************************End form executed function **************************************** */

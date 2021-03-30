@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Image, StyleSheet, Text, StatusBar, TouchableOpacity, View, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import data from '../../Datas';
 import { Feather } from '@expo/vector-icons';
 import logo from '../../../assets/logoupe.jpg';
 import pacientModel from '../Pacientinfo';
+import PacientContext from '../../Context/pacient';
 
 export default function QuestionOne() {
   const navigation = useNavigation();
   const [index, setIndex] = useState(0);
-  const {pacient, setPacient} = usePacient();
+  const {pacient, setPacient} = useContext(PacientContext);
 
   return (
     <View style={styles.container}>
