@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import data from '../../Datas';
 import { Feather } from '@expo/vector-icons';
 import logo from '../../../assets/logoupe.jpg';
-import pacientModel from '../Pacientinfo';
+import pacientModel from '../../Datas/Pacientinfo';
 import PacientContext from '../../Context/pacient';
 
 export default function QuestionOne() {
@@ -48,9 +48,9 @@ export default function QuestionOne() {
 
         <View>
           <TouchableOpacity style={styles.button} title="Fim" onPress={() => navigation.navigate("Home", { params: pacient })}>
-            <View style={[{ flexDirection: 'row', alignItems: 'center' }]}>
-              <Feather size={24} name="thumbs-up" color="#fff" />
-              <Text style={styles.navigationContainer}>Fim do questionário!</Text>
+            <View style={[{ flexDirection: 'column', alignItems: 'center' }]}>
+              <Feather size={40} name="alert-triangle" color="#fff" />
+              <Text style={styles.navigationContainer}>Delirium presente!</Text>
             </View>
           </TouchableOpacity>
         </View>}
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight,
-    backgroundColor: '#333',
+    backgroundColor: '#d3d3d3',
     alignItems: 'center',
     padding: 32,
   },
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     alignSelf: 'baseline',
     padding: 16,
     borderRadius: 20,
-    backgroundColor: '#eead2d',
+    backgroundColor: '#252850',
     flexDirection: 'column',
     alignItems: 'center',
   },
@@ -85,8 +85,8 @@ const styles = StyleSheet.create({
   },
 
   imageContainer: {
-    height: 200,
-    width: 200,
+    height: 150,
+    width: 150,
     borderRadius: 100,
     backgroundColor: '#fff',
     alignItems: 'center',
@@ -95,8 +95,8 @@ const styles = StyleSheet.create({
 
   logoStyle: {
     resizeMode: 'contain',
-    height: 150,
-    width: 150,
+    height: 120,
+    width: 120,
   },
 
   question: {
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight,
     padding: 16,
     borderRadius: 20,
-    backgroundColor: '#252850',
+    backgroundColor: '#ff0000',
     flexDirection: 'column',
     alignItems: 'center',
     borderColor: '#fff',

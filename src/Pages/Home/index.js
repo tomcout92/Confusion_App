@@ -7,14 +7,24 @@ import Questionnaire from '../Questionnaire';
 const Home = () => {
   const navigation = useNavigation();
   return (
-    <View style={styles.backgroud}>
-      <TouchableOpacity style={styles.button} title="Tests" onPress={() => navigation.navigate("Questionnaire")}>
-        <View style={[{ flexDirection: 'row', alignItems: 'center' }]}>
-          <Feather name="clipboard" size={24} color="#fff" />
-          <Text style={styles.navgiationContainer}>Questionnaire</Text>
-        </View>
-      </TouchableOpacity>
-    </View>
+    <>
+      <View style={styles.background}>
+        <TouchableOpacity style={styles.button} title="Tests" onPress={() => navigation.navigate("Questionnaire")}>
+          <View style={[{ flexDirection: 'column', alignItems: 'center' }]}>
+            <Feather name="clipboard" size={40} color="#fff" />
+            <Text style={styles.navgiationContainer}>Add New Pacient</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.button} title="Tests" onPress={() => navigation.navigate("Questionnaire")}>
+          <View style={[{ flexDirection: 'column', alignItems: 'center' }]}>
+            <Feather name="align-left" size={40} color="#fff" />
+            <Text style={styles.navgiationContainer}>Pacient List</Text>
+          </View>
+        </TouchableOpacity>
+
+      </View>
+    </>
   );
 
 }
@@ -23,25 +33,25 @@ export default Home;
 
 const styles = StyleSheet.create({
 
-  backgroud:{
-    backgroundColor:'#252850',
-    height:'100%',
+  background: {
+    backgroundColor: '#252850',
+    height: '100%',
   },
 
   button: {
     alignSelf: 'center',
-    marginTop:StatusBar.currentHeight,
+    marginTop: StatusBar.currentHeight,
     padding: 16,
     borderRadius: 20,
     backgroundColor: '#252850',
     flexDirection: 'column',
     alignItems: 'center',
-    borderColor:'#fff',
-    borderEndWidth:1,
-    borderTopWidth:1,
-    borderLeftWidth:1,
-    borderRightWidth:1,
-    borderBottomWidth:1,
+    borderColor: '#fff',
+    borderEndWidth: 1,
+    borderTopWidth: 1,
+    borderLeftWidth: 1,
+    borderRightWidth: 1,
+    borderBottomWidth: 1,
   },
 
   container: {

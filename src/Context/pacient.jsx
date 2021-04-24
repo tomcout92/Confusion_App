@@ -1,5 +1,5 @@
-import React, { createContext, useState, useContext } from 'react';
-import pacientModel from '../Pages/Pacientinfo';
+import React, { createContext, useState, useContext} from 'react';
+import pacientModel from '../Datas/Pacientinfo';
 
 const PacientContext = createContext({});
 
@@ -13,15 +13,5 @@ export const PacientProvider = ({ children }) => {
 }
 
 export default PacientContext;
-//export function usePacient() {
-// const context = useContext(PacientContext);
-//
-// if (!context) {
-//   throw new Error("usePacient must be used with a pacient provider");
-// }
-//
-// return context;
-//
-//
 
 

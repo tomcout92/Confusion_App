@@ -1,21 +1,27 @@
-import React, {useContext, useState } from 'react';
-import { Image, StyleSheet, Text, StatusBar, TouchableOpacity, TextInput, View, ScrollView } from 'react-native';
+import React, { useContext, useState } from 'react';
+import { Image, StyleSheet, Text, StatusBar, TouchableOpacity, TextInput, View} from 'react-native';
+import { Picker } from '@react-native-picker/picker';
 import { Feather } from '@expo/vector-icons';
 import { NavigationContainer, NavigationHelpersContext, useNavigation } from '@react-navigation/native';
-import pacientModel from '../Pacientinfo';
+import pacientModel from '../../Datas/Pacientinfo';
 import RiskFactor from '../../Components/Riskfactor';
 import PacientContext from '../../Context/pacient';
 
 const PacientForm = () => {
 
-  const riskFactor = [{ id: 1, factor: "Fumante" },
-  { id: 2, factor: "Dementia" }];
+  const riskFactor = [{ id: 1, factor: "Depression/Anxiety" },
+  { id: 2, factor: "Dementia" },
+  { id: 3, factor: "Smoker" },
+  { id: 3, factor: "Alcohol Abuse" }];
 
   const navigation = useNavigation();
+
+  //Pacient infos
   const [pname, setPname] = useState("");
+  const [psex, setPsex] = useState("");
   const [pacientAge, setPage] = useState(null);
-  const {pacient, setPacient} = useContext(PacientContext);
-  console.log(pacient);
+  const { pacient, setPacient } = useContext(PacientContext);
+  //Pacient infos end
 
   /*********************************End form executed function **************************************** */
   const onPress = () => {
@@ -35,6 +41,19 @@ const PacientForm = () => {
       <TextInput style={styles.input}
         placeholder='e.g 25'
         onChangeText={(val) => setPage(val)} />
+
+      <Picker
+        style={styles.dropDown}
+        mode='dropdown'
+        selectedValue={psex}
+        onValueChange={(itemValue, itemIndex) =>
+          setPsex(itemValue)
+        }>
+        <Picker.Item color="grey" label="Pacient Gender" value=""/>
+        <Picker.Item label="Male" value="Male" />
+        <Picker.Item label="Java" value="Female" />
+      </Picker>
+
 
       { riskFactor.map((value, index) => <RiskFactor key={index} value={value.factor} pacient={pacient} />)}
 
@@ -66,6 +85,13 @@ const styles = StyleSheet.create({
     borderRightWidth: 1,
     borderBottomWidth: 1,
     marginBottom: 20,
+  },
+
+  dropDown:{
+    width:'70%',
+    backgroundColor:'#fff',
+    marginBottom: 20,
+
   },
 
   navgiationContainer: {
