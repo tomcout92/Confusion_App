@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react';
-import { Image, StyleSheet, Text, StatusBar, TouchableOpacity, TextInput, View} from 'react-native';
+import { Image, StyleSheet, Text, StatusBar, TouchableOpacity, TextInput, View } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { Feather } from '@expo/vector-icons';
 import { NavigationContainer, NavigationHelpersContext, useNavigation } from '@react-navigation/native';
 import pacientModel from '../../Datas/Pacientinfo';
 import RiskFactor from '../../Components/Riskfactor';
 import PacientContext from '../../Context/pacient';
+import firebase from '../../DataBase/firebasedb'
 
 const PacientForm = () => {
 
@@ -23,10 +24,14 @@ const PacientForm = () => {
   const { pacient, setPacient } = useContext(PacientContext);
   //Pacient infos end
 
+  const db = firebase.firestore();
+  const pacientRefs = db.collection('pacients');
+
   /*********************************End form executed function **************************************** */
   const onPress = () => {
-    setPacient(prev => ({ ...prev, name: pname, age: pacientAge, id: (prev.id + 1) })),
-      navigation.navigate("Home")
+    setPacient(prev => ({ ...prev, name: pname, age: pacientAge, id: (prev.id + 1) }))
+    pacientRefs.add(pacient).then(response => console.log(response));
+    navigation.navigate("Home")
   };
   /*********************************End form executed function **************************************** */
 
@@ -49,7 +54,7 @@ const PacientForm = () => {
         onValueChange={(itemValue, itemIndex) =>
           setPsex(itemValue)
         }>
-        <Picker.Item color="grey" label="Pacient Gender" value=""/>
+        <Picker.Item color="grey" label="Pacient Gender" value="" />
         <Picker.Item label="Male" value="Male" />
         <Picker.Item label="Java" value="Female" />
       </Picker>
@@ -87,9 +92,9 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
 
-  dropDown:{
-    width:'70%',
-    backgroundColor:'#fff',
+  dropDown: {
+    width: '70%',
+    backgroundColor: '#fff',
     marginBottom: 20,
 
   },

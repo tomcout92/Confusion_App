@@ -4,7 +4,6 @@ import { createStackNavigator } from '@react-navigation/stack'
 import Questionnaire from './Pages/Questionnaire';
 import Home from './Pages/Home';
 import PacientForm from './Pages/Formulary'
-import PacientList from './PacientListDB'
 import PacientInfo from './Pages/PacientPage'
 
 
@@ -15,11 +14,10 @@ export default function Routes() {
   return (
     <NavigationContainer>
       <Navigator>
-        <Screen name="Escala Richmond" component={PacientList} />
+        <Screen name="Formulary" component={PacientForm} />
         <Screen name="Questionnaire" component={Questionnaire} />
         <Screen name="Pacient Infos " component={PacientInfo} />
         <Screen name="Home" component={Home} />
-        <Screen name="Formulary" component={PacientForm} />
       </Navigator>
     </NavigationContainer>
   );
