@@ -1,8 +1,8 @@
 import React from 'react';
 import { Image, StyleSheet, Text, StatusBar, TouchableOpacity, View } from 'react-native';
 import { Feather } from '@expo/vector-icons';
-import { NavigationContainer, NavigationHelpersContext, useNavigation } from '@react-navigation/native';
-import Questionnaire from '../Questionnaire';
+import {useNavigation } from '@react-navigation/native';
+import PacientList from '../PacientList'
 import Formulary from '../Formulary'
 
 const Home = () => {
@@ -10,14 +10,14 @@ const Home = () => {
   return (
     <>
       <View style={styles.background}>
-        <TouchableOpacity style={styles.button} title="Tests" onPress={() => navigation.navigate("Questionnaire")}>
+        <TouchableOpacity style={styles.button} title="Tests" onPress={() => navigation.navigate("Formulary")}>
           <View style={[{ flexDirection: 'column', alignItems: 'center' }]}>
             <Feather name="clipboard" size={40} color="#fff" />
             <Text style={styles.navgiationContainer}>Add New Pacient</Text>
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.button} title="Tests" onPress={() => navigation.navigate("Formulary")}>
+        <TouchableOpacity style={styles.button} title="Tests" onPress={() => navigation.navigate("Pacient List")}>
           <View style={[{ flexDirection: 'column', alignItems: 'center' }]}>
             <Feather name="align-left" size={40} color="#fff" />
             <Text style={styles.navgiationContainer}>Pacient List</Text>

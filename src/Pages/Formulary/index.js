@@ -1,9 +1,7 @@
 import React, { useContext, useState } from 'react';
-import { Image, StyleSheet, Text, StatusBar, TouchableOpacity, TextInput, View } from 'react-native';
+import { StyleSheet, Text, StatusBar, TouchableOpacity, TextInput, View } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import { Feather } from '@expo/vector-icons';
-import { NavigationContainer, NavigationHelpersContext, useNavigation } from '@react-navigation/native';
-import pacientModel from '../../Datas/Pacientinfo';
+import { useNavigation } from '@react-navigation/native';
 import RiskFactor from '../../Components/Riskfactor';
 import PacientContext from '../../Context/pacient';
 import firebase from '../../DataBase/firebasedb'

@@ -1,25 +1,27 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Image, StyleSheet, Text, StatusBar, TouchableOpacity, TextInput, View } from 'react-native';
 import { DataTable } from 'react-native-paper';
 
-const PacientInfos = () => {
+const PacientInfos = ({route, navigation}) => {
+
+  const any = route.params
+  console.log(any)
   return (
     <>
       <View>
         <DataTable>
           <DataTable.Header>
-            <DataTable.Title>Tomás Coutinho</DataTable.Title>
+            <DataTable.Title>{any.name}</DataTable.Title>
           </DataTable.Header>
 
           <DataTable.Row>
             <DataTable.Cell>Gender</DataTable.Cell>
-            <DataTable.Cell numeric>Male</DataTable.Cell>
+            <DataTable.Cell numeric>{any.gender}</DataTable.Cell>
           </DataTable.Row>
 
           <DataTable.Row>
             <DataTable.Cell>Risk Factors</DataTable.Cell>
             <DataTable.Cell numeric>Dementia</DataTable.Cell>
-            <DataTable.Cell numeric>Alcohol Abuse</DataTable.Cell>
           </DataTable.Row>
 
           <DataTable.Row>
@@ -61,9 +63,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
 
-  textbutton:{
+  textbutton: {
     fontSize: 16,
-    alignSelf:'center',
-    color:'#fff'
+    alignSelf: 'center',
+    color: '#fff'
   },
 })

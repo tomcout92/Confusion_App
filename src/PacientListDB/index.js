@@ -11,22 +11,18 @@ const db = firebase.firestore();
 const pacientRefs = db.collection('pacients');
 
 const PacientListDB = () => {
-  const [pacient, setPacient] = useState(null);
+  const [pacientsArray, setParray] = useState([])
 
-  useEffect(() => {
-    pacientRefs.onSnapshot(querySnapshot => {
-      const pacientFirestore = querySnapshot
-        .docChanges()
-        .filter(({ type }) => type === 'added')
-        .map(({ doc }) => {
-          const pacientData = doc.data();
-          return pacientData;
-        }
-        );
-      console.log(pacientFirestore);
-    })
-  }, []);
+  const loadPacients = async () => {
+    const pacients = (await pacientRefs.get())
+    const pacientsArray = []
+    pacients.forEach(doc => pacientsArray.push(doc.data()))
+    setParray(pacientsArray);
+  }
 
-  return null;
+  useEffect(() => { loadPacients() }, [])
+
+  return pacientsArray;
 }
+
 export default PacientListDB;

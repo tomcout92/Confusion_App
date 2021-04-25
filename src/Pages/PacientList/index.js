@@ -3,34 +3,28 @@ import { Image, StyleSheet, Text, StatusBar, TouchableOpacity, TextInput, View }
 import { DataTable } from 'react-native-paper';
 import pacient from '../../Datas/Pacientinfo';
 import firebase from '../../DataBase/firebasedb'
+import {useNavigation } from '@react-navigation/native';
 import PacientListDB from '../../PacientListDB'
-
-const db = firebase.firestore();
-const pacientRefs = db.collection('pacients');
+import PacientInfos from '../PacientPage'
 
 const PacientList = () => {
 
-  const [loaded, setLoaded] = useState(false)
-  const [pacientsArray, setParray] = useState([])
+    const navigation = useNavigation();
+    const pacients = PacientListDB();
 
-  const loadPacients = async () => {
-    console.log("Vai rolar")
-    const pacients = (await pacientRefs.get())
-    const pacientsArray = []
-    pacients.forEach(doc => pacientsArray.push(doc.data()))
-    setParray(pacientsArray);
-  }
-
-  useEffect(() => { loadPacients() }, [])
   return (
     <DataTable>
       <DataTable.Header>
-        <DataTable.Title>Escore</DataTable.Title>
-        <DataTable.Title numeric>Estado</DataTable.Title>
+        <DataTable.Title>Pacient number</DataTable.Title>
+        <DataTable.Title numeric>Pacient name</DataTable.Title>
       </DataTable.Header>
 
-      {pacientsArray.map((pacient, index) => (
-        <TouchableOpacity>
+      {pacients.map((pacient, index) => (
+        <TouchableOpacity
+          onPress={() => {
+                      navigation.navigate("Pacient Infos", pacient)}
+            }
+        >
           <DataTable.Row>
             <DataTable.Cell>{index + 1}</DataTable.Cell>
             <DataTable.Cell >
