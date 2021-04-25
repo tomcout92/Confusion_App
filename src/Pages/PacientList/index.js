@@ -1,16 +1,14 @@
-import React, { useContext, useState, useEffect } from 'react';
-import { Image, StyleSheet, Text, StatusBar, TouchableOpacity, TextInput, View } from 'react-native';
+import React from 'react';
+import { TouchableOpacity } from 'react-native';
 import { DataTable } from 'react-native-paper';
-import pacient from '../../Datas/Pacientinfo';
-import firebase from '../../DataBase/firebasedb'
 import {useNavigation } from '@react-navigation/native';
 import PacientListDB from '../../PacientListDB'
-import PacientInfos from '../PacientPage'
 
 const PacientList = () => {
 
     const navigation = useNavigation();
     const pacients = PacientListDB();
+    console.log(pacients)
 
   return (
     <DataTable>

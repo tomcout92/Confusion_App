@@ -1,9 +1,7 @@
 import React from 'react';
-import { Image, StyleSheet, Text, StatusBar, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, StatusBar, TouchableOpacity, View } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import {useNavigation } from '@react-navigation/native';
-import PacientList from '../PacientList'
-import Formulary from '../Formulary'
 
 const Home = () => {
   const navigation = useNavigation();

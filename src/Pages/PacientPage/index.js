@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Image, StyleSheet, Text, StatusBar, TouchableOpacity, TextInput, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, StatusBar, TouchableOpacity, View } from 'react-native';
 import { DataTable } from 'react-native-paper';
 
 const PacientInfos = ({route, navigation}) => {
@@ -26,7 +26,7 @@ const PacientInfos = ({route, navigation}) => {
 
           <DataTable.Row>
             <DataTable.Cell>Delirium Diagnostic</DataTable.Cell>
-            <DataTable.Cell numeric>{pacient.results}</DataTable.Cell>
+            <DataTable.Cell numeric>{pacient.result}</DataTable.Cell>
           </DataTable.Row>
         </DataTable>
       </View>

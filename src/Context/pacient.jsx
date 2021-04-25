@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext} from 'react';
+import React, { createContext, useState} from 'react';
 import pacientModel from '../Datas/Pacientinfo';
 
 const PacientContext = createContext({});

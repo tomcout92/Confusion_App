@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
-import pacientModel from '../../Datas/Pacientinfo'
 import PacientContext from '../../Context/pacient';
 
 const FactorsView = ({ value }) => {
