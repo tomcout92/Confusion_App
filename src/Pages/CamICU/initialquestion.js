@@ -1,59 +1,39 @@
 import React, { useContext, useState } from 'react';
 import { Image, StyleSheet, Text, StatusBar, TouchableOpacity, View, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import data from '../../Datas';
 import { Feather } from '@expo/vector-icons';
 import logo from '../../../assets/logoupe.jpg';
 import PacientContext from '../../Context/pacient';
 
 export default function QuestionOne() {
   const navigation = useNavigation();
-  const [index, setIndex] = useState(0);
-  const {pacient, setPacient} = useContext(PacientContext);
+  const { pacient, setPacient } = useContext(PacientContext);
 
   return (
     <View style={styles.container}>
-      {index <= 3 ?
-        <>
-          <ScrollView contentContainerStyle={styles.questionContainer}>
-            <View style={styles.imageContainer}>
-              <Image source={logo} style={styles.logoStyle} />
-            </View>
-            <Text style={styles.question}>{data[index].question}</Text>
-          </ScrollView>
-
-
-          <View style={styles.buttonsContainer}>
-
-            <TouchableOpacity style={styles.thumbsUp} onPress={() => {
-              setIndex(index + 1)
-              data[index].ans == true ? setPacient(prev => ({ ...prev, result: [...prev.result, { [data[index].id]: "Correct" }] }))
-                : setPacient(prev => ({ ...prev, result: [...prev.result, { [data[index].id]: "Incorrect" }] }))
-            }}>
-              <Feather size={24} name="check" color="#fff" />
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.thumbsDown} onPress={() => {
-              setIndex(index + 1)
-              data[index].ans == false ? setPacient(prev => ({ ...prev, result: [...prev.result, { [data[index].id]: "Correct" }] }))
-                : setPacient(prev => ({ ...prev, result: [...prev.result, { [data[index].id]: "Incorrect" }] }))
-            }}>
-              <Feather size={24} name="x" color="#fff" />
-            </TouchableOpacity>
-
+      <>
+        <ScrollView contentContainerStyle={styles.questionContainer}>
+          <View style={styles.imageContainer}>
+            <Image source={logo} style={styles.logoStyle} />
           </View>
-        </>
-        :
+          <Text style={styles.question}>O paciente apresentou mudança aguda ou flutuações no comportamento basal?</Text>
+        </ScrollView>
 
-        <View>
-          <TouchableOpacity style={styles.button} title="Fim" onPress={() => navigation.navigate("Home", { params: pacient })}>
-            <View style={[{ flexDirection: 'column', alignItems: 'center' }]}>
-              <Feather size={40} name="alert-triangle" color="#fff" />
-              <Text style={styles.navigationContainer}>Delirium presente!</Text>
-            </View>
+
+        <View style={styles.buttonsContainer}>
+
+          <TouchableOpacity style={styles.thumbsUp} onPress={()=>{navigation.navigate('CAM-ICU Diagnostic', "positive")}}>
+            <Feather size={24} name="check" color="#fff" />
           </TouchableOpacity>
-        </View>}
-    </View >
+
+          <TouchableOpacity style={styles.thumbsDown}>
+            <Feather size={24} name="x" color="#fff" />
+          </TouchableOpacity>
+
+        </View>
+
+      </>
+    </View>
   );
 }
 
