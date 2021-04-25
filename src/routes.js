@@ -5,6 +5,7 @@ import Questionnaire from './Pages/Questionnaire';
 import Home from './Pages/Home';
 import PacientForm from './Pages/Formulary'
 import PacientInfo from './Pages/PacientPage'
+import PacientList from './Pages/PacientList'
 
 
 
@@ -14,6 +15,7 @@ export default function Routes() {
   return (
     <NavigationContainer>
       <Navigator>
+        <Screen name="Pacient List" component={PacientList} />
         <Screen name="Formulary" component={PacientForm} />
         <Screen name="Questionnaire" component={Questionnaire} />
         <Screen name="Pacient Infos " component={PacientInfo} />

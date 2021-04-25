@@ -1,3 +1,3 @@
-const pacient = {id:0, name:"", age:null, sex:"", riskfactors: [], result:[]};
+const pacient = {name:"", age:null, gender:"", riskfactors: [], result:[]};
 
 export default pacient;

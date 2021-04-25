@@ -18,9 +18,6 @@ const PacientForm = () => {
   const navigation = useNavigation();
 
   //Pacient infos
-  const [pname, setPname] = useState("");
-  const [psex, setPsex] = useState("");
-  const [pacientAge, setPage] = useState(null);
   const { pacient, setPacient } = useContext(PacientContext);
   //Pacient infos end
 
@@ -29,8 +26,7 @@ const PacientForm = () => {
 
   /*********************************End form executed function **************************************** */
   const onPress = () => {
-    setPacient(prev => ({ ...prev, name: pname, age: pacientAge, id: (prev.id + 1) }))
-    pacientRefs.add(pacient).then(response => console.log(response));
+    pacientRefs.add(pacient);
     navigation.navigate("Home")
   };
   /*********************************End form executed function **************************************** */
@@ -40,23 +36,24 @@ const PacientForm = () => {
       <Text style={{ color: '#a9a9a9', fontSize: 18 }}>Enter pacient name:</Text>
       <TextInput style={styles.input}
         placeholder='e.g Antônio Carlos Belchior Fontenelle Fernandes'
-        onChangeText={(val) => setPname(val)} />
+        onChangeText={(val) => setPacient(prev=>({...prev, name:val}))
+        } />
 
       <Text style={{ color: '#a9a9a9', fontSize: 18 }}>Enter pacient age:</Text>
       <TextInput style={styles.input}
         placeholder='e.g 25'
-        onChangeText={(val) => setPage(val)} />
+        onChangeText={(val) => setPacient(prev=>({...prev, age:val}))} />
 
       <Picker
         style={styles.dropDown}
         mode='dropdown'
-        selectedValue={psex}
+        selectedValue={pacient.gender}
         onValueChange={(itemValue, itemIndex) =>
-          setPsex(itemValue)
+          setPacient(prev=>({...prev, gender:itemValue}))
         }>
         <Picker.Item color="grey" label="Pacient Gender" value="" />
         <Picker.Item label="Male" value="Male" />
-        <Picker.Item label="Java" value="Female" />
+        <Picker.Item label="Female" value="Female" />
       </Picker>
 
 
