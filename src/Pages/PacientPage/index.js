@@ -4,29 +4,29 @@ import { DataTable } from 'react-native-paper';
 
 const PacientInfos = ({route, navigation}) => {
 
-  const any = route.params
-  console.log(any)
+  const pacient = route.params
+  console.log(pacient)
   return (
     <>
       <View>
         <DataTable>
           <DataTable.Header>
-            <DataTable.Title>{any.name}</DataTable.Title>
+            <DataTable.Title>{pacient.name}</DataTable.Title>
           </DataTable.Header>
 
           <DataTable.Row>
             <DataTable.Cell>Gender</DataTable.Cell>
-            <DataTable.Cell numeric>{any.gender}</DataTable.Cell>
+            <DataTable.Cell numeric>{pacient.gender}</DataTable.Cell>
           </DataTable.Row>
 
           <DataTable.Row>
             <DataTable.Cell>Risk Factors</DataTable.Cell>
-            <DataTable.Cell numeric>Dementia</DataTable.Cell>
+            <DataTable.Cell numeric>{pacient.riskfactors}</DataTable.Cell>
           </DataTable.Row>
 
           <DataTable.Row>
             <DataTable.Cell>Delirium Diagnostic</DataTable.Cell>
-            <DataTable.Cell numeric>Not defined</DataTable.Cell>
+            <DataTable.Cell numeric>{pacient.results}</DataTable.Cell>
           </DataTable.Row>
         </DataTable>
       </View>
