@@ -3,11 +3,10 @@ import { StyleSheet, Text, StatusBar, TouchableOpacity, View } from 'react-nativ
 import { DataTable } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 
-const PacientInfos = ({route, navigation}) => {
+const PacientInfos = ({route}) => {
 
-  const navi = useNavigation();
+  const navigation = useNavigation();
   const pacient = route.params
-  console.log(pacient)
   return (
     <>
       <View>
@@ -35,7 +34,7 @@ const PacientInfos = ({route, navigation}) => {
 
       <View style={styles.container}>
 
-        <TouchableOpacity onPress={()=>{navi.navigate("Initial Question")}}>
+        <TouchableOpacity onPress={()=>{navigation.navigate("Initial Question", pacient)}}>
           <Text style={styles.textbutton}>CAM-ICU</Text>
         </TouchableOpacity>
 

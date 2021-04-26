@@ -1,16 +1,36 @@
-import React, { useContext, useState } from 'react';
-import { Image, StyleSheet, Text, StatusBar, TouchableOpacity, View, ScrollView } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, StatusBar, View } from 'react-native';
 import { Feather } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import UpdateDB from '../../DataBase/updatedb';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 
-export default function Diagnostic(val, navi) {
-  console.log(val)
+export default function Diagnostic({ route }) {
+
+  const navigation = useNavigation();
+  const [pacient, setPacient] = useState(route.params)
+
+
+  function pressButton(){
+    setPacient(prev=>({...prev, result: "Positive"}));
+    UpdateDB(pacient, updateComplete())
+    console.log(pacient)
+  }
+
+  function updateComplete(){
+    navigation.navigate("Home");
+  }
+
+
+
   return (
     <View style={styles.resultContainer}>
-      <View style={[{ flexDirection: 'column', alignItems: 'center' }]}>
-        <Feather size={40} name="alert-triangle" color="#fff" />
-        <Text style={styles.textContainer}>Delirium presente!</Text>
-      </View>
+      <TouchableOpacity onPress={()=>pressButton()}>
+        <View style={[{ flexDirection: 'column', alignItems: 'center' }]}>
+          <Feather size={40} name="alert-triangle" color="#fff" />
+          <Text style={styles.textContainer}>Delirium presente!</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 

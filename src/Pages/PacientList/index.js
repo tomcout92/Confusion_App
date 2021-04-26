@@ -8,7 +8,6 @@ const PacientList = () => {
 
     const navigation = useNavigation();
     const pacients = PacientListDB();
-    console.log(pacients)
 
   return (
     <DataTable>

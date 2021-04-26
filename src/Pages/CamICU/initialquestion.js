@@ -3,11 +3,12 @@ import { Image, StyleSheet, Text, StatusBar, TouchableOpacity, View, ScrollView 
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
 import logo from '../../../assets/logoupe.jpg';
-import PacientContext from '../../Context/pacient';
+import firebase from '../../DataBase/firebasedb'
 
-export default function QuestionOne() {
+export default function QuestionOne({route}) {
+
   const navigation = useNavigation();
-  const { pacient, setPacient } = useContext(PacientContext);
+  const pacient = route.params
 
   return (
     <View style={styles.container}>
@@ -22,7 +23,7 @@ export default function QuestionOne() {
 
         <View style={styles.buttonsContainer}>
 
-          <TouchableOpacity style={styles.thumbsUp} onPress={()=>{navigation.navigate('CAM-ICU Diagnostic', "positive")}}>
+          <TouchableOpacity style={styles.thumbsUp} onPress={()=>{navigation.navigate('CAM-ICU Diagnostic', pacient)}}>
             <Feather size={24} name="check" color="#fff" />
           </TouchableOpacity>
 
