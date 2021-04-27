@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, StatusBar, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, StatusBar, TouchableOpacity, View, ScrollView } from 'react-native';
 import { DataTable } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 
-const PacientInfos = ({route}) => {
+const PacientInfos = ({ route }) => {
 
   const navigation = useNavigation();
   const pacient = route.params
@@ -20,9 +20,13 @@ const PacientInfos = ({route}) => {
             <DataTable.Cell numeric>{pacient.gender}</DataTable.Cell>
           </DataTable.Row>
 
-          <DataTable.Row>
+          <DataTable.Row >
             <DataTable.Cell>Risk Factors</DataTable.Cell>
-            <DataTable.Cell numeric>{pacient.riskfactors}</DataTable.Cell>
+            <ScrollView contentContainerStyle={{alignItems:'flex-end'}}>
+            {pacient.riskfactors.map(risk=>
+              <Text>{risk}</Text>
+              )}
+            </ScrollView>
           </DataTable.Row>
 
           <DataTable.Row>
@@ -34,7 +38,7 @@ const PacientInfos = ({route}) => {
 
       <View style={styles.container}>
 
-        <TouchableOpacity onPress={()=>{navigation.navigate("Initial Question", pacient)}}>
+        <TouchableOpacity onPress={() => { navigation.navigate("Initial Question", pacient) }}>
           <Text style={styles.textbutton}>CAM-ICU</Text>
         </TouchableOpacity>
 

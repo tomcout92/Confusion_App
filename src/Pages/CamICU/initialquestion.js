@@ -8,7 +8,7 @@ import firebase from '../../DataBase/firebasedb'
 export default function QuestionOne({route}) {
 
   const navigation = useNavigation();
-  const pacient = route.params
+  pacient = route.params
 
   return (
     <View style={styles.container}>
@@ -23,7 +23,7 @@ export default function QuestionOne({route}) {
 
         <View style={styles.buttonsContainer}>
 
-          <TouchableOpacity style={styles.thumbsUp} onPress={()=>{navigation.navigate('CAM-ICU Diagnostic', pacient)}}>
+          <TouchableOpacity style={styles.thumbsUp} onPress={()=>{navigation.navigate('CAM-ICU Diagnostic', {...pacient, result:"Positive"})}}>
             <Feather size={24} name="check" color="#fff" />
           </TouchableOpacity>
 
