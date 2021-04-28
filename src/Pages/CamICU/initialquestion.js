@@ -1,9 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import { Image, StyleSheet, Text, StatusBar, TouchableOpacity, View, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
 import logo from '../../../assets/logoupe.jpg';
-import firebase from '../../DataBase/firebasedb'
 
 export default function QuestionOne({route}) {
 
@@ -23,11 +22,11 @@ export default function QuestionOne({route}) {
 
         <View style={styles.buttonsContainer}>
 
-          <TouchableOpacity style={styles.thumbsUp} onPress={()=>{navigation.navigate('CAM-ICU Diagnostic', {...pacient, result:"Positive"})}}>
-            <Feather size={24} name="check" color="#fff" />
+          <TouchableOpacity style={styles.thumbsUp} onPress={()=>{navigation.navigate('Inattetion Test', pacient)}}>
+            <Feather size={24} name="check" color="#fff"/>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.thumbsDown}>
+          <TouchableOpacity style={styles.thumbsDown}  onPress={()=>{navigation.navigate('CAM-ICU Diagnostic', {...pacient, result:"Negative"})}}>
             <Feather size={24} name="x" color="#fff" />
           </TouchableOpacity>
 

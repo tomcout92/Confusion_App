@@ -10,6 +10,8 @@ export default function Diagnostic({ route }) {
 
   const navigation = useNavigation();
 
+  console.log(route.params)
+
 
   function pressButton() {
     UpdateDB(route.params, updateComplete())
@@ -22,7 +24,7 @@ export default function Diagnostic({ route }) {
 
   return (
     <>
-      {pacient.result = "Positive" ?
+      {pacient.result === "Positive" ?
         <View style={styles.deliriumContainer}>
           <TouchableOpacity onPress={() => pressButton()}>
             <View style={[{ flexDirection: 'column', alignItems: 'center' }]}>
@@ -32,7 +34,7 @@ export default function Diagnostic({ route }) {
           </TouchableOpacity>
         </View>
         :
-        <View style={styles.resultContainer}>
+        <View style={styles.goodresultContainer}>
           <TouchableOpacity onPress={() => pressButton()}>
             <View style={[{ flexDirection: 'column', alignItems: 'center' }]}>
               <Feather size={40} name="check-circle" color="#fff" />
