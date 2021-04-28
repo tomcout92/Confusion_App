@@ -18,8 +18,8 @@ export default function Routes() {
   return (
     <NavigationContainer>
       <Navigator>
-        <Screen name="Questionnaire" component={Questionnaire} />
         <Screen name="Home" component={Home} />
+        <Screen name="Questionnaire" component={Questionnaire} />
         <Screen name="Inattetion Test" component={Attention} />
         <Screen name="Escala Richmond" component={RassTable} />
         <Screen name="Pacient List" component={PacientList} />

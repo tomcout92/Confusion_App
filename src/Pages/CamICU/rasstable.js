@@ -17,70 +17,70 @@ export default function RassTable({route}){
         <DataTable.Title numeric>Estado</DataTable.Title>
       </DataTable.Header>
 
-      <TouchableOpacity OnPress={PressButton}>
+      <TouchableOpacity onPress={PressButton}>
         <DataTable.Row>
           <DataTable.Cell>+4</DataTable.Cell>
           <DataTable.Cell>Combativo</DataTable.Cell>
         </DataTable.Row>
       </TouchableOpacity>
 
-      <TouchableOpacity OnPress={PressButton}>
+      <TouchableOpacity onPress={PressButton}>
         <DataTable.Row>
           <DataTable.Cell>+3</DataTable.Cell>
           <DataTable.Cell>Muito agitado</DataTable.Cell>
         </DataTable.Row>
       </TouchableOpacity>
 
-      <TouchableOpacity OnPress={PressButton}>
+      <TouchableOpacity onPress={PressButton}>
         <DataTable.Row>
           <DataTable.Cell>+2</DataTable.Cell>
           <DataTable.Cell>Agitado</DataTable.Cell>
         </DataTable.Row>
       </TouchableOpacity>
 
-      <TouchableOpacity OnPress={PressButton}>
+      <TouchableOpacity onPress={PressButton}>
         <DataTable.Row>
           <DataTable.Cell>+1</DataTable.Cell>
           <DataTable.Cell>Ansioso</DataTable.Cell>
         </DataTable.Row>
       </TouchableOpacity>
 
-      <TouchableOpacity OnPress={()=> {navigation.navigate('Questionnaire', pacient)}}>
+      <TouchableOpacity onPress={()=> {navigation.navigate('Questionnaire', pacient)}}>
         <DataTable.Row>
           <DataTable.Cell>0</DataTable.Cell>
           <DataTable.Cell>Alerta e Calmo</DataTable.Cell>
         </DataTable.Row>
       </TouchableOpacity>
 
-      <TouchableOpacity OnPress={PressButton}>
+      <TouchableOpacity onPress={PressButton}>
         <DataTable.Row>
           <DataTable.Cell>-1</DataTable.Cell>
           <DataTable.Cell>Sonolento</DataTable.Cell>
         </DataTable.Row>
       </TouchableOpacity>
 
-      <TouchableOpacity OnPress={PressButton}>
+      <TouchableOpacity onPress={PressButton}>
         <DataTable.Row>
           <DataTable.Cell>-2</DataTable.Cell>
           <DataTable.Cell>Sedação leve</DataTable.Cell>
         </DataTable.Row>
       </TouchableOpacity>
 
-      <TouchableOpacity OnPress={PressButton}>
+      <TouchableOpacity onPress={PressButton}>
         <DataTable.Row>
           <DataTable.Cell>-3</DataTable.Cell>
           <DataTable.Cell>Sedação moderada</DataTable.Cell>
         </DataTable.Row>
       </TouchableOpacity>
 
-      <TouchableOpacity OnPress={PressButton}>
+      <TouchableOpacity onPress={PressButton}>
         <DataTable.Row>
           <DataTable.Cell>-4</DataTable.Cell>
           <DataTable.Cell>Sedação profunda</DataTable.Cell>
         </DataTable.Row>
       </TouchableOpacity>
 
-      <TouchableOpacity OnPress={PressButton}>
+      <TouchableOpacity onPress={PressButton}>
         <DataTable.Row>
           <DataTable.Cell>-5</DataTable.Cell>
           <DataTable.Cell>Incapaz de ser despertado</DataTable.Cell>
