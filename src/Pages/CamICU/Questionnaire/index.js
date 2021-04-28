@@ -52,8 +52,8 @@ export default function Questionnaire({route}) {
           <TouchableOpacity style={styles.button} title="Fim" onPress={()=>{errors === 0 ? navigation.navigate('CAM-ICU Diagnostic', {...pacient, result:"Negative"})
                                                                               : navigation.navigate('CAM-ICU Diagnostic', {...pacient, result:"Positive"})}}>
             <View style={[{ flexDirection: 'column', alignItems: 'center' }]}>
-              <Feather size={40} name="alert-triangle" color="#fff" />
-              <Text style={styles.navigationContainer}>Delirium presente!</Text>
+              <Feather size={40} name="arrow-down" color="#fff" />
+              <Text style={styles.navigationContainer}>Clique para ver o resultado!</Text>
             </View>
           </TouchableOpacity>
         </View>}
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight,
     padding: 16,
     borderRadius: 20,
-    backgroundColor: '#ff0000',
+    backgroundColor: '#252850',
     flexDirection: 'column',
     alignItems: 'center',
     borderColor: '#fff',
