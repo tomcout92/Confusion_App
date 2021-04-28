@@ -4,14 +4,11 @@ import { Feather } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import UpdateDB from '../../DataBase/updatedb';
 import { useNavigation } from '@react-navigation/native';
-import pacient from '../../Datas/Pacientinfo';
+
 
 export default function Diagnostic({ route }) {
 
   const navigation = useNavigation();
-
-  console.log(route.params)
-  const pacient = route.params
 
   function pressButton() {
     UpdateDB(route.params, updateComplete())
@@ -24,7 +21,7 @@ export default function Diagnostic({ route }) {
 
   return (
     <>
-      {pacient.result === "Positive" ?
+      {route.params.result === "Positive" ?
         <View style={styles.deliriumContainer}>
           <TouchableOpacity onPress={() => pressButton()}>
             <View style={[{ flexDirection: 'column', alignItems: 'center' }]}>
