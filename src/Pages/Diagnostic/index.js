@@ -11,7 +11,7 @@ export default function Diagnostic({ route }) {
   const navigation = useNavigation();
 
   console.log(route.params)
-
+  const pacient = route.params
 
   function pressButton() {
     UpdateDB(route.params, updateComplete())
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
 
-  goodresultContainer:{
+  goodresultContainer: {
     alignSelf: 'center',
     marginTop: StatusBar.currentHeight,
     padding: 16,
