@@ -2,11 +2,24 @@ import React from 'react';
 import { StyleSheet, Text, StatusBar, TouchableOpacity, View, ScrollView } from 'react-native';
 import { DataTable } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
+import DeleteData from '../../DataBase/deletedata'
 
 const PacientInfos = ({ route }) => {
 
+
+
   const navigation = useNavigation();
   const pacient = route.params
+
+  function pressButton() {
+
+    DeleteData(route.params, deleteComplete());
+
+  }
+
+  function deleteComplete() {
+    navigation.navigate("Home");
+  }
   return (
     <>
       <View>
@@ -22,9 +35,9 @@ const PacientInfos = ({ route }) => {
 
           <DataTable.Row >
             <DataTable.Cell>Risk Factors</DataTable.Cell>
-            <ScrollView contentContainerStyle={{alignItems:'flex-end'}}>
-            {pacient.riskfactors.map(risk=>
-              <Text>{risk}</Text>
+            <ScrollView contentContainerStyle={{ alignItems: 'flex-end' }}>
+              {pacient.riskfactors.map(risk =>
+                <Text>{risk}</Text>
               )}
             </ScrollView>
           </DataTable.Row>
@@ -42,6 +55,14 @@ const PacientInfos = ({ route }) => {
           <Text style={styles.textbutton}>CAM-ICU</Text>
         </TouchableOpacity>
 
+      </View>
+
+      <View style={{ ...styles.container, backgroundColor: 'red' }}>
+        <TouchableOpacity onPress={() => pressButton()}>
+          <Text style={styles.textbutton}>
+            Remove
+              </Text>
+        </TouchableOpacity>
       </View>
     </>
   );

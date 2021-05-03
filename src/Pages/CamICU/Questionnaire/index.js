@@ -12,7 +12,6 @@ export default function Questionnaire({route}) {
   const [index, setIndex] = useState(0);
   const [errors, setErrors] = useState(0);
 
-  console.log(errors)
 
   return (
     <View style={styles.container}>
@@ -49,7 +48,7 @@ export default function Questionnaire({route}) {
         :
 
         <View>
-          <TouchableOpacity style={styles.button} title="Fim" onPress={()=>{errors === 0 ? navigation.navigate('CAM-ICU Diagnostic', {...pacient, result:"Negative"})
+          <TouchableOpacity style={styles.button} title="Fim" onPress={()=>{errors <= 1 ? navigation.navigate('CAM-ICU Diagnostic', {...pacient, result:"Negative"})
                                                                               : navigation.navigate('CAM-ICU Diagnostic', {...pacient, result:"Positive"})}}>
             <View style={[{ flexDirection: 'column', alignItems: 'center' }]}>
               <Feather size={40} name="arrow-down" color="#fff" />
