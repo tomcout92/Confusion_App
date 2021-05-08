@@ -48,8 +48,8 @@ export default function Questionnaire({route}) {
         :
 
         <View>
-          <TouchableOpacity style={styles.button} title="Fim" onPress={()=>{errors <= 1 ? navigation.navigate('CAM-ICU Diagnostic', {...pacient, result:"Negative"})
-                                                                              : navigation.navigate('CAM-ICU Diagnostic', {...pacient, result:"Positive"})}}>
+          <TouchableOpacity style={styles.button} title="Fim" onPress={()=>{errors <= 1 ? navigation.navigate('Diagnóstico', {...pacient, result:"Negativo"})
+                                                                              : navigation.navigate('Diagnóstico', {...pacient, result:"Positivo"})}}>
             <View style={[{ flexDirection: 'column', alignItems: 'center' }]}>
               <Feather size={40} name="arrow-down" color="#fff" />
               <Text style={styles.navigationContainer}>Clique para ver o resultado!</Text>

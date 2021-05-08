@@ -12,14 +12,14 @@ const PacientList = () => {
   return (
     <DataTable>
       <DataTable.Header>
-        <DataTable.Title>Pacient number</DataTable.Title>
-        <DataTable.Title numeric>Pacient name</DataTable.Title>
+        <DataTable.Title>Número do paciente</DataTable.Title>
+        <DataTable.Title numeric>Nome do paciente</DataTable.Title>
       </DataTable.Header>
 
       {pacients.map((pacient, index) => (
         <TouchableOpacity
           onPress={() => {
-                      navigation.navigate("Pacient Infos", pacient)}
+                      navigation.navigate("Informações do paciente", pacient)}
             }
         >
           <DataTable.Row>

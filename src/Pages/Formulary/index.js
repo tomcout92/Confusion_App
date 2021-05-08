@@ -8,10 +8,10 @@ import firebase from '../../DataBase/firebasedb'
 
 const PacientForm = () => {
 
-  const riskFactor = [{ id: 1, factor: "Depression/Anxiety" },
-  { id: 2, factor: "Dementia" },
-  { id: 3, factor: "Smoker" },
-  { id: 3, factor: "Alcohol Abuse" }];
+  const riskFactor = [{ id: 1, factor: "Depressão/Ansiedade" },
+  { id: 2, factor: "Demência" },
+  { id: 3, factor: "Fumante" },
+  { id: 3, factor: "Abuso de álcool" }];
 
   const navigation = useNavigation();
 
@@ -25,19 +25,19 @@ const PacientForm = () => {
   /*********************************End form executed function **************************************** */
   const onPress = () => {
     pacientRefs.add(pacient);
-    navigation.navigate("Home")
+    navigation.navigate("Página inicial")
   };
   /*********************************End form executed function **************************************** */
 
   return (
     <View style={styles.backgroud}>
-      <Text style={{ color: '#a9a9a9', fontSize: 18 }}>Enter pacient name:</Text>
+      <Text style={{ color: '#a9a9a9', fontSize: 18 }}>Nome do paciente:</Text>
       <TextInput style={styles.input}
         placeholder='e.g Antônio Carlos Belchior Fontenelle Fernandes'
         onChangeText={(val) => setPacient(prev=>({...prev, name:val}))
         } />
 
-      <Text style={{ color: '#a9a9a9', fontSize: 18 }}>Enter pacient age:</Text>
+      <Text style={{ color: '#a9a9a9', fontSize: 18 }}>Idade:</Text>
       <TextInput style={styles.input}
         placeholder='e.g 25'
         onChangeText={(val) => setPacient(prev=>({...prev, age:val}))} />
@@ -49,9 +49,9 @@ const PacientForm = () => {
         onValueChange={(itemValue, itemIndex) =>
           setPacient(prev=>({...prev, gender:itemValue}))
         }>
-        <Picker.Item color="grey" label="Pacient Gender" value="" />
-        <Picker.Item label="Male" value="Male" />
-        <Picker.Item label="Female" value="Female" />
+        <Picker.Item color="grey" label="Gênero" value="" />
+        <Picker.Item label="Masculino" value="Masculino" />
+        <Picker.Item label="Feminino" value="Feminino" />
       </Picker>
 
 

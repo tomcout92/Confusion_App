@@ -15,13 +15,13 @@ export default function Diagnostic({ route }) {
   }
 
   function updateComplete() {
-    navigation.navigate("Home");
+    navigation.navigate("Página inicial");
   }
 
 
   return (
     <>
-      {route.params.result === "Positive" ?
+      {route.params.result === "Positivo" ?
         <View style={styles.deliriumContainer}>
           <TouchableOpacity onPress={() => pressButton()}>
             <View style={[{ flexDirection: 'column', alignItems: 'center' }]}>

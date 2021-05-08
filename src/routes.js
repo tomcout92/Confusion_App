@@ -18,15 +18,15 @@ export default function Routes() {
   return (
     <NavigationContainer>
       <Navigator>
-        <Screen name="Home" component={Home} />
-        <Screen name="Questionnaire" component={Questionnaire} />
-        <Screen name="Inattetion Test" component={Attention} />
+        <Screen name="Página inicial" component={Home} />
+        <Screen name="Questionário" component={Questionnaire} />
+        <Screen name="Teste de atenção" component={Attention} />
         <Screen name="Escala Richmond" component={RassTable} />
-        <Screen name="Pacient List" component={PacientList} />
-        <Screen name="Formulary" component={PacientForm} />
-        <Screen name="Initial Question" component={QuestionOne} />
-        <Screen name="Pacient Infos" component={PacientInfos} />
-        <Screen name="CAM-ICU Diagnostic" component={Diagnostic} />
+        <Screen name="Pacientes" component={PacientList} />
+        <Screen name="Formulário" component={PacientForm} />
+        <Screen name="Pergunta inicial" component={QuestionOne} />
+        <Screen name="Informações do paciente" component={PacientInfos} />
+        <Screen name="Diagnóstico" component={Diagnostic} />
       </Navigator>
     </NavigationContainer>
   );

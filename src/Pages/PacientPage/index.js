@@ -18,7 +18,7 @@ const PacientInfos = ({ route }) => {
   }
 
   function deleteComplete() {
-    navigation.navigate("Home");
+    navigation.navigate("Página inicial");
   }
   return (
     <>
@@ -29,12 +29,14 @@ const PacientInfos = ({ route }) => {
           </DataTable.Header>
 
           <DataTable.Row>
-            <DataTable.Cell>Gender</DataTable.Cell>
+            <DataTable.Cell>Gênero</DataTable.Cell>
             <DataTable.Cell numeric>{pacient.gender}</DataTable.Cell>
           </DataTable.Row>
 
           <DataTable.Row >
-            <DataTable.Cell>Risk Factors</DataTable.Cell>
+            <View style={{alignContent: 'center'}}>
+              <Text>Fatores de risco</Text>
+            </View>
             <ScrollView contentContainerStyle={{ alignItems: 'flex-end' }}>
               {pacient.riskfactors.map(risk =>
                 <Text>{risk}</Text>
@@ -43,7 +45,7 @@ const PacientInfos = ({ route }) => {
           </DataTable.Row>
 
           <DataTable.Row>
-            <DataTable.Cell>Delirium Diagnostic</DataTable.Cell>
+            <DataTable.Cell>Diagnóstico</DataTable.Cell>
             <DataTable.Cell numeric>{pacient.result}</DataTable.Cell>
           </DataTable.Row>
         </DataTable>
@@ -51,7 +53,7 @@ const PacientInfos = ({ route }) => {
 
       <View style={styles.container}>
 
-        <TouchableOpacity onPress={() => { navigation.navigate("Initial Question", pacient) }}>
+        <TouchableOpacity onPress={() => { navigation.navigate("Pergunta inicial", pacient) }}>
           <Text style={styles.textbutton}>CAM-ICU</Text>
         </TouchableOpacity>
 
@@ -60,7 +62,7 @@ const PacientInfos = ({ route }) => {
       <View style={{ ...styles.container, backgroundColor: 'red' }}>
         <TouchableOpacity onPress={() => pressButton()}>
           <Text style={styles.textbutton}>
-            Remove
+            Remover
               </Text>
         </TouchableOpacity>
       </View>

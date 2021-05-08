@@ -8,17 +8,17 @@ const Home = () => {
   return (
     <>
       <View style={styles.background}>
-        <TouchableOpacity style={styles.button} title="Tests" onPress={() => navigation.navigate("Formulary")}>
+        <TouchableOpacity style={styles.button} title="Tests" onPress={() => navigation.navigate("Formulário")}>
           <View style={[{ flexDirection: 'column', alignItems: 'center' }]}>
             <Feather name="clipboard" size={40} color="#fff" />
-            <Text style={styles.navgiationContainer}>Add New Pacient</Text>
+            <Text style={styles.navgiationContainer}>Novo paciente</Text>
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.button} title="Tests" onPress={() => navigation.navigate("Pacient List")}>
+        <TouchableOpacity style={styles.button} title="Tests" onPress={() => navigation.navigate("Pacientes")}>
           <View style={[{ flexDirection: 'column', alignItems: 'center' }]}>
             <Feather name="align-left" size={40} color="#fff" />
-            <Text style={styles.navgiationContainer}>Pacient List</Text>
+            <Text style={styles.navgiationContainer}>Pacientes cadastrados</Text>
           </View>
         </TouchableOpacity>
 

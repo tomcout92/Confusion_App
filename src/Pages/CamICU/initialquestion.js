@@ -22,11 +22,11 @@ export default function QuestionOne({route}) {
 
         <View style={styles.buttonsContainer}>
 
-          <TouchableOpacity style={styles.thumbsUp} onPress={()=>{navigation.navigate('Inattetion Test', pacient)}}>
+          <TouchableOpacity style={styles.thumbsUp} onPress={()=>{navigation.navigate('Teste de atenção', pacient)}}>
             <Feather size={24} name="check" color="#fff"/>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.thumbsDown}  onPress={()=>{navigation.navigate('CAM-ICU Diagnostic', {...pacient, result:"Negative"})}}>
+          <TouchableOpacity style={styles.thumbsDown}  onPress={()=>{navigation.navigate('Diagnóstico', {...pacient, result:"Negativo"})}}>
             <Feather size={24} name="x" color="#fff" />
           </TouchableOpacity>
 

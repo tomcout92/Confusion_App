@@ -8,7 +8,7 @@ export default function RassTable({route}){
   const navigation = useNavigation();
   const pacient = route.params
 
-  const PressButton = () => {navigation.navigate('CAM-ICU Diagnostic', {...pacient, result: "Positive"})}
+  const PressButton = () => {navigation.navigate('Diagnóstico', {...pacient, result: "Positivo"})}
 
   return (
     <DataTable>
@@ -45,7 +45,7 @@ export default function RassTable({route}){
         </DataTable.Row>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={()=> {navigation.navigate('Questionnaire', pacient)}}>
+      <TouchableOpacity onPress={()=> {navigation.navigate('Questionário', pacient)}}>
         <DataTable.Row>
           <DataTable.Cell>0</DataTable.Cell>
           <DataTable.Cell>Alerta e Calmo</DataTable.Cell>

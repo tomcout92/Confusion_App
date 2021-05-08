@@ -32,7 +32,7 @@ export default function InattetionTest({ route }) {
           <Text style={{ fontSize: 20, color: '#fff', }}>Sim!</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.thumbsUp} onPress={()=>{navigation.navigate('CAM-ICU Diagnostic', {...pacient, result: "Negative"})}}>
+        <TouchableOpacity style={styles.thumbsUp} onPress={()=>{navigation.navigate('Diagnóstico', {...pacient, result: "Negativo"})}}>
           <Text style={{ fontSize: 20, color: '#fff', }}>Não!</Text>
         </TouchableOpacity>
       </View>
